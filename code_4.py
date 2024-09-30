@@ -19,9 +19,12 @@ def get_the_cheapest_big_mac_price_by_year(year):
     query_text = f"((date >= '{year}-01-01' and date <= '{year}-12-31'))"
     min_bm = bm.query(query_text)
     min_idx= min_bm["dollar_price"].idxmin()
-    return round (min_idx['name']["dollar_price"])
-                    
-    
+    price_min = min_bm.loc[min_idx, "dollar_price"]
+    price_min_rounded = round (price_min,2)
+    country_name = min_bm.loc[min_idx, "name"]
+    country_3 = min_bm.loc[min_idx, "iso_a3"]
+    print(f"{country_name}({country_3}): ${price_min_rounded}")
+
 def get_the_most_expensive_big_mac_price_by_year(year):
     pass # Remove this line and code your function
 
