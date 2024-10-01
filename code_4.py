@@ -5,9 +5,9 @@ big_mac_file = './big-mac-full-index.csv'
 bm = pd.read_csv(big_mac_file)
 
 def get_big_mac_price_by_year(year,country_code):
-    cc = country_code.lower()
-    query_text = f"((iso_a3 == '{country_code}'and date >= '{year}-01-01' and date <= '{year}-12-31'))"
-    # Query for 2 different filters the country code and the tear
+    cc = country_code.upper()
+    query_text = f"((iso_a3 == '{cc}'and date >= '{year}-01-01' and date <= '{year}-12-31'))"
+    # Query for 2 different filters the country code and the year
     bm_m = bm.query(query_text)
     price_by_year= bm_m['dollar_price'].mean()
     # Finds the dollar price mean using the query
@@ -16,13 +16,13 @@ def get_big_mac_price_by_year(year,country_code):
     return (price_by_year_rounded)
     
 def get_big_mac_price_by_country(country_code):
-    cc = country_code.lower()
+    cc = country_code.upper()
     # Creates logic for our country code to all be in UPPER CASE told by tutor I should use .upper() as it will work with github grade better 
-    query_text = f"(iso_a3 == '{country_code}')"
+    query_text = f"(iso_a3 == '{cc}')"
     # Filter for the country_code
     bm_m = bm.query(query_text)
     price_by_country = bm_m['dollar_price'].mean()
-    # Finds the mean using our query
+    # Finds the mean using our query for the country code
     price_by_country_rounded = round (price_by_country,2)
     # Rounds price to two decimal places
     return (price_by_country_rounded)
