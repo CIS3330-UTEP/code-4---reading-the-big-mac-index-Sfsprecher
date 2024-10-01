@@ -5,6 +5,7 @@ big_mac_file = './big-mac-full-index.csv'
 bm = pd.read_csv(big_mac_file)
 
 def get_big_mac_price_by_year(year,country_code):
+    cc = country_code.lower()
     query_text = f"((iso_a3 == '{country_code}'and date >= '{year}-01-01' and date <= '{year}-12-31'))"
     # Query for 2 different filters the country code and the tear
     bm_m = bm.query(query_text)
@@ -15,7 +16,7 @@ def get_big_mac_price_by_year(year,country_code):
     return (price_by_year_rounded)
     
 def get_big_mac_price_by_country(country_code):
-    cc = country_code.upper()
+    cc = country_code.lower()
     # Creates logic for our country code to all be in UPPER CASE told by tutor I should use .upper() as it will work with github grade better 
     query_text = f"(iso_a3 == '{country_code}')"
     # Filter for the country_code
@@ -58,8 +59,7 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     return (f"{country_name}({country_3}): ${price_max_rounded}")
     
 if __name__ == "__main__":
- pass
-       
+    pass
 
    
    
