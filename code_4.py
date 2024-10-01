@@ -36,7 +36,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
     # Identifies the row with the lowest minimum for that row
     price_min = min_bm.loc[min_idx, "dollar_price"]
     # Finds the dollar price for that specific row using the loc 
-    # Chatgpt 4o Mini. Date 9/30/2024 "How am I formating this line wrong? price_min = min_bm[min_idx, "dollar_price" Generated using Generated using
+    # Chatgpt 4o Mini. Date 9/30/2024 "How am I formating this python line wrong? price_min = min_bm[min_idx, "dollar_price" Generated using Generated using
     # OpenAI Chat-GPT. https://chat.openai.com/
     price_min_rounded = round (price_min,2)
     # uses for rounding the price to 2 decimals
