@@ -46,7 +46,7 @@ def get_the_cheapest_big_mac_price_by_year(year):
     country_3 = min_bm.loc[min_idx, "iso_a3"]
     # finds the 3 letter 
     return (f"{country_name}({country_3}): ${price_min_rounded}")
-    # I know this is a very ugly long code but I was have trouble doing it the way I think it should be done so I improvised
+    # I know this is a very ugly long code but I was have trouble doing it the way I
 def get_the_most_expensive_big_mac_price_by_year(year):
     #Follows same code above instead finding the max instead of the min
     query_text = f"((date >= '{year}-01-01' and date <= '{year}-12-31'))"
